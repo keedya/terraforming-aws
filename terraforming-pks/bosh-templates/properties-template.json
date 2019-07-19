@@ -1,0 +1,59 @@
+{
+  "director_configuration": {
+    "ntp_servers_string": "0.amazon.pool.ntp.org, 1.amazon.pool.ntp.org, 2.amazon.pool.ntp.org, 3.amazon.pool.ntp.org",
+    "metrics_ip": null,
+    "resurrector_enabled": true,
+    "allow_legacy_agents": true,
+    "director_hostname": null,
+    "max_threads": null,
+    "custom_ssh_banner": null,
+    "opentsdb_ip": null,
+    "director_worker_count": 5,
+    "post_deploy_enabled": true,
+    "bosh_recreate_on_next_deploy": false,
+    "bosh_recreate_persistent_disks_on_next_deploy": false,
+    "retry_bosh_deploys": true,
+    "keep_unreachable_vms": false,
+    "identification_tags": {},
+    "skip_director_drain": true,
+    "database_type": "internal",
+    "blobstore_type": "local",
+    "local_blobstore_options": {
+      "tls_enabled": true
+    },
+    "hm_pager_duty_options": {
+      "enabled": false
+    },
+    "hm_emailer_options": {
+      "enabled": false
+    },
+    "encryption": {
+      "keys": [],
+      "providers": []
+    }
+  },
+  "dns_configuration": {
+    "excluded_recursors": [],
+    "recursor_timeout": null,
+    "handlers": []
+  },
+  "security_configuration": {
+    "trusted_certificates": null,
+    "generate_vm_passwords": true,
+    "opsmanager_root_ca_trusted_certs": false
+  },
+  "syslog_configuration": {
+    "enabled": false
+  },
+  "iaas_configuration": {
+    "name": "default",
+    "additional_cloud_properties": {},
+    "iam_instance_profile": null,
+    "security_group": "sg-04d380e91cbb9f094",
+    "key_pair_name": "desa-lab-sulfur-ops-manager-key",
+    "ssh_private_key": "-----BEGIN RSA PRIVATE KEY----- ...",
+    "region": "us-west-2",
+    "encrypted": false,
+    "kms_key_arn": null
+  }
+}

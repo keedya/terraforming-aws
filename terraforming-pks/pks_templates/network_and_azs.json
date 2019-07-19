@@ -1,0 +1,21 @@
+{
+  "networks_and_azs": {
+    "singleton_availability_zone": {
+      "name": "us-west-2b"
+    },
+    "other_availability_zones": [
+      {
+        "name": "us-west-2b"
+      },
+      {
+        "name": "us-west-2c"
+      }
+    ],
+    "network": {
+      "name": "infrastructure"
+    },
+    "service_network": {
+      "name": "services"
+    }
+  }
+}

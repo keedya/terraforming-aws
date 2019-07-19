@@ -35,6 +35,14 @@
     {
       "Effect": "Allow",
       "Action": [
+        "ecr:*",
+        "cloudtrail:LookupEvents"
+      ],
+     "Resource": "*"
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
         "elasticloadbalancing:*"
       ],
       "Resource": [

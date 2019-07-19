@@ -1,0 +1,10 @@
+{
+  "network_and_az": {
+    "network": {
+      "name": "infrastructure"
+    },
+    "singleton_availability_zone": {
+      "name": "us-west-2b"
+    }
+  }
+}

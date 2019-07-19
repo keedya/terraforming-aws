@@ -1,0 +1,81 @@
+{
+  "icmp_checks_enabled": false,
+  "networks": [
+    {
+      "name": "infrastructure",
+      "subnets": [
+        {
+          "iaas_identifier": "subnet-01093c8339c45b3a5",
+          "cidr": "10.0.16.0/28",
+          "dns": "10.0.0.2",
+          "gateway": "10.0.16.1",
+          "reserved_ip_ranges": "10.0.16.0-10.0.16.4",
+          "availability_zone_names": [
+            "us-west-2b"
+          ]
+        },
+        {
+          "iaas_identifier": "subnet-032be3abd833a448b",
+          "cidr": "10.0.16.16/28",
+          "dns": "10.0.0.2",
+          "gateway": "10.0.16.17",
+          "reserved_ip_ranges": "10.0.16.16-10.0.16.20",
+          "availability_zone_names": [
+            "us-west-2c"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "pks",
+      "subnets": [
+        {
+          "iaas_identifier": "subnet-0384f1adb2bbcb8fc",
+          "cidr": "10.0.4.0/24",
+          "dns": "10.0.0.2",
+          "gateway": "10.0.4.1",
+          "reserved_ip_ranges": "10.0.4.0-10.0.4.4",
+          "availability_zone_names": [
+            "us-west-2b"
+          ]
+        },
+        {
+          "iaas_identifier": "subnet-06377a4e61490c90a",
+          "cidr": "10.0.5.0/24",
+          "dns": "10.0.0.2",
+          "gateway": "10.0.5.1",
+          "reserved_ip_ranges": "10.0.5.0-10.0.5.4",
+          "availability_zone_names": [
+            "us-west-2c"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "services",
+      "subnets": [
+        {
+          "iaas_identifier": "subnet-09f68025bde14108a",
+          "cidr": "10.0.8.0/24",
+          "dns": "10.0.0.2",
+          "gateway": "10.0.8.1",
+          "reserved_ip_ranges": "10.0.8.0-10.0.8.3",
+          "availability_zone_names": [
+            "us-west-2b"
+          ]
+        },
+        {
+          "iaas_identifier": "subnet-0e72c6546d82d9ac9",
+          "cidr": "10.0.9.0/24",
+          "dns": "10.0.0.2",
+          "gateway": "10.0.9.1",
+          "reserved_ip_ranges": "10.0.9.0-10.0.9.3",
+          "availability_zone_names": [
+            "us-west-2c"
+          ]
+        }
+      ]
+    }
+  ]
+}
+

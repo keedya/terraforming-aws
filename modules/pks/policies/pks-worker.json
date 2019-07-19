@@ -15,6 +15,14 @@
       "Action": "ec2:DetachVolume",
       "Effect": "Allow",
       "Resource": "*"
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "ecr:*",
+        "cloudtrail:LookupEvents"
+      ],
+     "Resource": "*"
     }
   ]
 }

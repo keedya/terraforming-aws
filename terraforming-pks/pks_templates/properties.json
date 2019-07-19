@@ -1,0 +1,462 @@
+{
+  "properties": {
+    ".properties.cloud_provider": {
+      "type": "selector",
+      "configurable": true,
+      "credential": false,
+      "value": "AWS",
+      "optional": false,
+      "selected_option": "aws"
+    },
+    ".properties.cloud_provider.aws.iam_instance_profile_master": {
+      "type": "string",
+      "configurable": true,
+      "credential": false,
+      "value": "desa-lab-sulfur_pks-master",
+      "optional": false
+    },
+    ".properties.cloud_provider.aws.iam_instance_profile_worker": {
+      "type": "string",
+      "configurable": true,
+      "credential": false,
+      "value": "desa-lab-sulfur_pks-worker",
+      "optional": false
+    },
+    ".properties.network_selector": {
+      "type": "selector",
+      "configurable": true,
+      "credential": false,
+      "value": "flannel",
+      "optional": false,
+      "selected_option": "flannel"
+    },
+    ".properties.network_selector.flannel.pod_network_cidr": {
+      "type": "string",
+      "configurable": true,
+      "credential": false,
+      "value": "10.200.0.0/16",
+      "optional": false
+    },
+    ".properties.network_selector.flannel.service_cluster_cidr": {
+      "type": "string",
+      "configurable": true,
+      "credential": false,
+      "value": "10.100.200.0/24",
+      "optional": false
+    },
+    ".properties.vm_extensions": {
+      "type": "multi_select_options",
+      "configurable": true,
+      "credential": false,
+      "value": null,
+      "optional": true
+    },
+    ".properties.proxy_selector": {
+      "type": "selector",
+      "configurable": true,
+      "credential": false,
+      "value": "Disabled",
+      "optional": false,
+      "selected_option": "disabled"
+    },
+    ".properties.plan1_selector": {
+      "type": "selector",
+      "configurable": true,
+      "credential": false,
+      "value": "Plan Active",
+      "optional": false,
+      "selected_option": "active"
+    },
+    ".properties.plan1_selector.active.name": {
+      "type": "string",
+      "configurable": true,
+      "credential": false,
+      "value": "small",
+      "optional": false
+    },
+    ".properties.plan1_selector.active.description": {
+      "type": "text",
+      "configurable": true,
+      "credential": false,
+      "value": "Example: This plan will configure a lightweight kubernetes cluster. Not recommended for production workloads.",
+      "optional": false
+    },
+    ".properties.plan1_selector.active.master_az_placement": {
+      "type": "service_network_az_multi_select",
+      "configurable": true,
+      "credential": false,
+      "value": [
+        "us-west-2b",
+        "us-west-2c"
+      ],
+      "optional": false
+    },
+    ".properties.plan1_selector.active.worker_az_placement": {
+      "type": "service_network_az_multi_select",
+      "configurable": true,
+      "credential": false,
+      "value": [
+        "us-west-2b",
+        "us-west-2c"
+      ],
+      "optional": false
+    },
+    ".properties.plan1_selector.active.master_vm_type": {
+      "type": "vm_type_dropdown",
+      "configurable": true,
+      "credential": false,
+      "value": null,
+      "optional": false
+    },
+    ".properties.plan1_selector.active.master_persistent_disk_type": {
+      "type": "disk_type_dropdown",
+      "configurable": true,
+      "credential": false,
+      "value": null,
+      "optional": false
+    },
+    ".properties.plan1_selector.active.worker_vm_type": {
+      "type": "vm_type_dropdown",
+      "configurable": true,
+      "credential": false,
+      "value": null,
+      "optional": false
+    },
+    ".properties.plan1_selector.active.worker_persistent_disk_type": {
+      "type": "disk_type_dropdown",
+      "configurable": true,
+      "credential": false,
+      "value": null,
+      "optional": false
+    },
+    ".properties.plan1_selector.active.master_instances": {
+      "type": "integer",
+      "configurable": true,
+      "credential": false,
+      "value": 1,
+      "optional": false
+    },
+    ".properties.plan1_selector.active.max_worker_instances": {
+      "type": "integer",
+      "configurable": true,
+      "credential": false,
+      "value": 50,
+      "optional": false
+    },
+    ".properties.plan1_selector.active.worker_instances": {
+      "type": "integer",
+      "configurable": true,
+      "credential": false,
+      "value": 3,
+      "optional": false
+    },
+    ".properties.plan1_selector.active.errand_vm_type": {
+      "type": "vm_type_dropdown",
+      "configurable": true,
+      "credential": false,
+      "value": null,
+      "optional": false
+    },
+    ".properties.plan1_selector.active.addons_spec": {
+      "type": "text",
+      "configurable": true,
+      "credential": false,
+      "value": null,
+      "optional": true
+    },
+    ".properties.plan1_selector.active.allow_privileged_containers": {
+      "type": "boolean",
+      "configurable": true,
+      "credential": false,
+      "value": true,
+      "optional": true
+    },
+    ".properties.plan1_selector.active.admission_plugins": {
+      "type": "multi_select_options",
+      "configurable": true,
+      "credential": false,
+      "value": null,
+      "optional": true
+    },
+    ".properties.plan1_selector.active.system_reserved": {
+      "type": "string",
+      "configurable": true,
+      "credential": false,
+      "value": null,
+      "optional": true
+    },
+    ".properties.plan1_selector.active.eviction_hard": {
+      "type": "string",
+      "configurable": true,
+      "credential": false,
+      "value": null,
+      "optional": true
+    },
+    ".properties.plan2_selector": {
+      "type": "selector",
+      "configurable": true,
+      "credential": false,
+      "value": "Plan Active",
+      "optional": false,
+      "selected_option": "active"
+    },
+    ".properties.plan2_selector.active.name": {
+      "type": "string",
+      "configurable": true,
+      "credential": false,
+      "value": "medium",
+      "optional": false
+    },
+    ".properties.plan2_selector.active.description": {
+      "type": "text",
+      "configurable": true,
+      "credential": false,
+      "value": "Example: This plan will configure a medium sized kubernetes cluster, suitable for more pods.",
+      "optional": false
+    },
+    ".properties.plan2_selector.active.master_az_placement": {
+      "type": "service_network_az_multi_select",
+      "configurable": true,
+      "credential": false,
+      "value": [
+        "us-west-2b",
+        "us-west-2c"
+      ],
+      "optional": false
+    },
+    ".properties.plan2_selector.active.worker_az_placement": {
+      "type": "service_network_az_multi_select",
+      "configurable": true,
+      "credential": false,
+      "value": [
+        "us-west-2b",
+        "us-west-2c"
+      ],
+      "optional": false
+    },
+    ".properties.plan2_selector.active.master_vm_type": {
+      "type": "vm_type_dropdown",
+      "configurable": true,
+      "credential": false,
+      "value": null,
+      "optional": false
+    },
+    ".properties.plan2_selector.active.master_persistent_disk_type": {
+      "type": "disk_type_dropdown",
+      "configurable": true,
+      "credential": false,
+      "value": null,
+      "optional": false
+    },
+    ".properties.plan2_selector.active.worker_vm_type": {
+      "type": "vm_type_dropdown",
+      "configurable": true,
+      "credential": false,
+      "value": "m4.xlarge",
+      "optional": false
+    },
+    ".properties.plan2_selector.active.worker_persistent_disk_type": {
+      "type": "disk_type_dropdown",
+      "configurable": true,
+      "credential": false,
+      "value": null,
+      "optional": false
+    },
+    ".properties.plan2_selector.active.master_instances": {
+      "type": "integer",
+      "configurable": true,
+      "credential": false,
+      "value": 3,
+      "optional": false
+    },
+    ".properties.plan2_selector.active.max_worker_instances": {
+      "type": "integer",
+      "configurable": true,
+      "credential": false,
+      "value": 50,
+      "optional": false
+    },
+    ".properties.plan2_selector.active.worker_instances": {
+      "type": "integer",
+      "configurable": true,
+      "credential": false,
+      "value": 5,
+      "optional": false
+    },
+    ".properties.plan2_selector.active.errand_vm_type": {
+      "type": "vm_type_dropdown",
+      "configurable": true,
+      "credential": false,
+      "value": null,
+      "optional": false
+    },
+    ".properties.plan2_selector.active.addons_spec": {
+      "type": "text",
+      "configurable": true,
+      "credential": false,
+      "value": null,
+      "optional": true
+    },
+    ".properties.plan2_selector.active.allow_privileged_containers": {
+      "type": "boolean",
+      "configurable": true,
+      "credential": false,
+      "value": true,
+      "optional": true
+    },
+    ".properties.plan2_selector.active.admission_plugins": {
+      "type": "multi_select_options",
+      "configurable": true,
+      "credential": false,
+      "value": null,
+      "optional": true
+    },
+    ".properties.plan2_selector.active.system_reserved": {
+      "type": "string",
+      "configurable": true,
+      "credential": false,
+      "value": null,
+      "optional": true
+    },
+    ".properties.plan2_selector.active.eviction_hard": {
+      "type": "string",
+      "configurable": true,
+      "credential": false,
+      "value": null,
+      "optional": true
+    },
+    ".properties.uaa": {
+      "type": "selector",
+      "configurable": true,
+      "credential": false,
+      "value": "internal",
+      "optional": false,
+      "selected_option": "internal"
+    },
+    ".properties.uaa_oidc": {
+      "type": "boolean",
+      "configurable": true,
+      "credential": false,
+      "value": true,
+      "optional": false
+    },
+    ".properties.pks_api_hostname": {
+      "type": "string",
+      "configurable": true,
+      "credential": false,
+      "value": "api.pks.desa-lab-sulfur.desa.nautilusbeta.com",
+      "optional": false
+    },
+    ".properties.worker_max_in_flight": {
+      "type": "integer",
+      "configurable": true,
+      "credential": false,
+      "value": 1,
+      "optional": false
+    },
+    ".properties.uaa_pks_cli_access_token_lifetime": {
+      "type": "integer",
+      "configurable": true,
+      "credential": false,
+      "value": 600,
+      "optional": false
+    },
+    ".properties.uaa_pks_cli_refresh_token_lifetime": {
+      "type": "integer",
+      "configurable": true,
+      "credential": false,
+      "value": 21600,
+      "optional": false
+    },
+    ".properties.pks-vrops": {
+      "type": "selector",
+      "configurable": true,
+      "credential": false,
+      "value": "disabled",
+      "optional": false,
+      "selected_option": "disabled"
+    },
+    ".properties.pks-vrli": {
+      "type": "selector",
+      "configurable": true,
+      "credential": false,
+      "value": "disabled",
+      "optional": false,
+      "selected_option": "disabled"
+    },
+    ".properties.pks-vrli.enabled.use_ssl": {
+      "type": "boolean",
+      "configurable": true,
+      "credential": false,
+      "value": true,
+      "optional": false
+    },
+    ".properties.pks-vrli.enabled.skip_cert_verify": {
+      "type": "boolean",
+      "configurable": true,
+      "credential": false,
+      "value": false,
+      "optional": false
+    },
+    ".properties.telemetry_selector": {
+      "type": "selector",
+      "configurable": true,
+      "credential": false,
+      "value": "disabled",
+      "optional": false,
+      "selected_option": "disabled"
+    },
+    ".properties.telemetry_selector.enabled.telemetry_url": {
+      "type": "http_url",
+      "configurable": true,
+      "credential": false,
+      "value": "https://vcsa.vmware.com/ph",
+      "optional": false
+    },
+    ".properties.telemetry_selector.enabled.telemetry_polling_interval": {
+      "type": "integer",
+      "configurable": true,
+      "credential": false,
+      "value": 600,
+      "optional": false
+    },
+    ".properties.telemetry_selector.enabled.billing_polling_interval": {
+      "type": "integer",
+      "configurable": true,
+      "credential": false,
+      "value": 60,
+      "optional": false
+    },
+    ".properties.telemetry_selector.enabled.environment_provider": {
+      "type": "string",
+      "configurable": true,
+      "credential": false,
+      "value": "none",
+      "optional": false
+    },
+    ".properties.metric_sink_resources_deploy": {
+      "type": "boolean",
+      "configurable": true,
+      "credential": false,
+      "value": true,
+      "optional": false
+    },
+    ".properties.log_sink_resources_deploy": {
+      "type": "boolean",
+      "configurable": true,
+      "credential": false,
+      "value": true,
+      "optional": false
+    },
+    ".pivotal-container-service.pks_tls": {
+      "type": "rsa_cert_credentials",
+      "configurable": true,
+      "credential": true,
+      "value": {
+        "private_key_pem": "",
+        "cert_pem": ""
+      },
+      "optional": false
+    }
+  }
+}
