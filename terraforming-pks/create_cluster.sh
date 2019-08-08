@@ -17,18 +17,19 @@
 set +e
 SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
 
-usage() { echo "Usage: $0 [-c <cluster-name> -p <small|medium|qe-large]> -e <cluster-env-file>" 1>&2; exit 1; }
+usage() { echo "Usage: $0 [-c <cluster-name> -p <small|medium|qe-large]> -e <cluster-env-file> -n <number of workers>" 1>&2; exit 1; }
 
-while getopts c:e:p: option
+while getopts c:e:p:n: option
 do
     case "${option}" in
         c) cluster_name=${OPTARG};;
         e) cluster_env_file=${OPTARG};;
         p) cluster_plan=${OPTARG};;
+	n) cluster_workers=${OPTARG};;
     esac
 done
 
-if [ -z ${cluster_name} ] || [ -z ${cluster_plan} ] || [ -z ${cluster_env_file} ]; then
+if [ -z ${cluster_name} ] || [ -z ${cluster_plan} ] || [ -z ${cluster_env_file} ] || [ -z ${cluster_workers} ]; then
     usage
 fi
 
@@ -44,7 +45,7 @@ pks login -a api.pks.${PROFILE}.${TLD} -u ${PROFILE} -p ${ADMIN_PASSWORD} --skip
 
 cluster_uuid=`pks cluster ${cluster_name} | grep UUID | cut -d':' -f2|awk '{$1=$1;print}'`
 if [ -z "${cluster_uuid}" ]; then
-    cluster_uuid=`pks create-cluster ${cluster_name} -p ${cluster_plan} -e ${cluster_name}.${PROFILE}.${TLD} | grep UUID | cut -d':' -f2|awk '{$1=$1;print}'`
+    cluster_uuid=`pks create-cluster ${cluster_name} -p ${cluster_plan} -n ${cluster_workers} -e ${cluster_name}.${PROFILE}.${TLD} | grep UUID | cut -d':' -f2|awk '{$1=$1;print}'`
 fi
 
 echo
