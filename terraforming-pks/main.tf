@@ -129,3 +129,15 @@ module "rds" {
 
   tags = "${local.actual_tags}"
 }
+
+module "openvpn" {
+  source = "../modules/openvpn"
+  ami                      = "${var.openvpn_ami_id}"
+  instance_type            = "${var.openvpn_instance_type}"
+  vpc_id                   = "${module.infra.vpc_id}"
+  vpc_cidr                 = "${var.vpc_cidr}"
+  public_subnet_id         = "${module.infra.public_subnet_ids}"
+  openvpn_admin_user       = "${var.openvpn_admin_user}"
+  openvpn_admin_pw         = "${var.openvpn_admin_pwd}"
+  keyname                  = "${var.openvpn_keyname}"
+}

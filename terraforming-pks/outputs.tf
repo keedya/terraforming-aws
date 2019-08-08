@@ -226,3 +226,9 @@ output "services_subnet_gateways" {
 output "tags" {
   value = "${local.actual_tags}"
 }
+output "openvpn_private_ip"  { value = "${module.openvpn.private_ip}" }
+output "openvpn_public_ip"   { value = "${module.openvpn.public_ip}" }
+output "openvpn_ssh_private_key" {
+  value = "${module.openvpn.ssh_private_key}"
+  sensitive = true
+}

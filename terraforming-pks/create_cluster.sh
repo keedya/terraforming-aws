@@ -65,6 +65,14 @@ done
 echo "cluster ec2 instance id: ${k8s_cluster_instance_id}"
 
 echo
+echo "tagging the subnets for service instance of the cluster, to get LBs created automatically for services"
+aws ec2 create-tags --resources ${SUBNET1} ${SUBNET2} --tags Key=kubernetes.io/cluster/service-instance_${cluster_uuid},Value=shared --profile ${PROFILE}
+
+echo
+echo "tagging the security groups for service instance of the cluster, to get LBs created automatically for services"
+aws ec2 create-tags --resources ${SECURITY_GROUP}  --tags Key=kubernetes.io/cluster/service-instance_${cluster_uuid},Value=shared --profile ${PROFILE}
+
+echo
 echo "creating elb to access cluster master"
 elb_output=`aws elbv2 create-load-balancer --name ${cluster_name}-${PROFILE} --type network --subnets ${SUBNET1} ${SUBNET2} --region ${REGION} --profile  ${PROFILE}`
 if [ -z "${elb_output}" ]; then

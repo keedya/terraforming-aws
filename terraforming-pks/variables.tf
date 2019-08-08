@@ -120,3 +120,13 @@ variable "access_key" {
 variable "secret_key" {
   default = ""
 }
+
+/*********************************
+ * Openvpn variables             *
+ *********************************/
+
+variable "openvpn_admin_user" {}
+variable "openvpn_admin_pwd" {}
+variable "openvpn_keyname" {}
+variable "openvpn_ami_id" {}
+variable "openvpn_instance_type" {}
