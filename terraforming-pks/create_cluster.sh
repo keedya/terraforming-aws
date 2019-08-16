@@ -74,7 +74,8 @@ aws ec2 create-tags --resources ${SECURITY_GROUP}  --tags Key=kubernetes.io/clus
 
 echo
 echo "creating elb to access cluster master"
-elb_output=`aws elbv2 create-load-balancer --name ${cluster_name}-${PROFILE} --type network --subnets ${SUBNET1} ${SUBNET2} --region ${REGION} --profile  ${PROFILE}`
+ELB_NAME=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 30 | head -n 1)
+elb_output=`aws elbv2 create-load-balancer --name ${ELB_NAME} --type network --subnets ${SUBNET1} ${SUBNET2} --region ${REGION} --profile  ${PROFILE}`
 if [ -z "${elb_output}" ]; then
     echo "setup elb to access your cluster, https://asdwiki.isus.emc.com:8443/display/NKB/Nautilus+OE+-+AWS+PKS+-+Installation+notes#NautilusOE-AWSPKS-Installationnotes-SetupNautilusprerequisitesonAWS"
     exit 1
