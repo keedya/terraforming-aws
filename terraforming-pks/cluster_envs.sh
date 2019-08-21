@@ -5,4 +5,4 @@ PROFILE=${ADMIN_USER}
 TLD=desa.nautilusbeta.com
 VPC_ID=$(terraform output vpc_id)
 HOSTED_ZONE_ID=$(terraform output dns_zone_id)
-REGION=us-west-2
+REGION=$(terraform output region)
