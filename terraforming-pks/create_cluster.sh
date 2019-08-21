@@ -66,11 +66,11 @@ echo "cluster ec2 instance id: ${k8s_cluster_instance_id}"
 
 echo
 echo "tagging the subnets for service instance of the cluster, to get LBs created automatically for services"
-aws ec2 create-tags --resources ${SUBNET1} ${SUBNET2} --tags Key=kubernetes.io/cluster/service-instance_${cluster_uuid},Value=shared --profile ${PROFILE}
+aws ec2 create-tags --resources ${SUBNET1} ${SUBNET2} --tags Key=kubernetes.io/cluster/service-instance_${cluster_uuid},Value=shared --region ${REGION} --profile ${PROFILE}
 
 echo
 echo "tagging the security groups for service instance of the cluster, to get LBs created automatically for services"
-aws ec2 create-tags --resources ${SECURITY_GROUP}  --tags Key=kubernetes.io/cluster/service-instance_${cluster_uuid},Value=shared --profile ${PROFILE}
+aws ec2 create-tags --resources ${SECURITY_GROUP}  --tags Key=kubernetes.io/cluster/service-instance_${cluster_uuid},Value=shared --region ${REGION} --profile ${PROFILE}
 
 echo
 echo "creating elb to access cluster master"
@@ -96,11 +96,11 @@ echo "created elb target group: ${elb_target_group_arn}"
 echo
 echo "register elb targets"
 
-aws elbv2 register-targets --target-group-arn ${elb_target_group_arn} --targets ${k8s_cluster_instance_id[@]/#/Id=} --profile ${PROFILE} 
+aws elbv2 register-targets --target-group-arn ${elb_target_group_arn} --targets ${k8s_cluster_instance_id[@]/#/Id=} --region ${REGION} --profile ${PROFILE} 
 
 echo
 echo "create elb listener"
-aws elbv2 create-listener --load-balancer-arn ${elb_arn} --protocol TCP --port 8443 --default-actions Type=forward,TargetGroupArn=${elb_target_group_arn} --profile ${PROFILE}
+aws elbv2 create-listener --load-balancer-arn ${elb_arn} --protocol TCP --port 8443 --default-actions Type=forward,TargetGroupArn=${elb_target_group_arn}  --region ${REGION} --profile ${PROFILE}
 
 #setup dns alias
 cat <<EOF > /tmp/dns-record.json
