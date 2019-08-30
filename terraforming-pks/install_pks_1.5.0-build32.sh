@@ -1,7 +1,7 @@
 #!/bin/bash -x
 PKS_BINARY="pivotal-container-service-1.5.0-build.32.pivotal"
-STEMCELL="light-bosh-stemcell-170.118-aws-xen-hvm-ubuntu-xenial-go_agent.tgz"
-STEMCELL_VERSION="170.118"
+STEMCELL="light-bosh-stemcell-315.81-aws-xen-hvm-ubuntu-xenial-go_agent.tgz"
+STEMCELL_VERSION="315.81"
 # upload the image
 om -t https://${OPS_MANAGER_IP} -u ${ADMIN_USER} -p ${ADMIN_PASSWORD} -k upload-product -p ${PKS_PRODUCT}/${PKS_BINARY}
 ##################### stage product #######################################
